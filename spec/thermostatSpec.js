@@ -18,6 +18,11 @@ describe("Thermostat", function() {
       thermostat.up();
       expect(thermostat.temp).toEqual(21);
     });
+
+    it("does not increase temperature above maximum", function() {
+      thermostat.temp = thermostat.maximum;
+      expect(function(){ thermostat.up(); }).toThrow("Maximum temperature reached");
+    });
   });
 
   describe(".down", function() {
