@@ -1,4 +1,5 @@
 var Thermostat = require("../lib/thermostat")
+'use strict';
 
 describe("Thermostat", function() {
   var thermostat;
@@ -32,7 +33,7 @@ describe("Thermostat", function() {
     });
 
     it("does not decrease temperature below minimum", function() {
-      thermostat.temp = thermostat.minimum;
+      thermostat.temp = thermostat.MINIMUM;
       expect(function(){ thermostat.down(); }).toThrow("Minimum temperature reached");
     });
   });
@@ -58,7 +59,7 @@ describe("Thermostat", function() {
 
   describe(".usage", function() {
     it("returns 'low' when temp < 18", function() {
-      for (i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) {
         thermostat.down();
       };
       expect(thermostat.usage()).toEqual('low');
@@ -69,7 +70,7 @@ describe("Thermostat", function() {
     })
 
     it("returns 'high' when temp >= 25", function() {
-      for (i = 0; i < 5; i++) {
+      for (var i = 0; i < 5; i++) {
         thermostat.up();
       };
       expect(thermostat.usage()).toEqual('high');
