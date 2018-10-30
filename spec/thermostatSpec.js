@@ -12,4 +12,11 @@ describe("Thermostat", function() {
       expect(thermostat.temp).toEqual(20);
     });
   });
+
+  describe(".up", function() {
+    it("increases the temperature by 1", function() {
+      thermostat.up();
+      expect(thermostat.temp).toEqual(21);
+    });
+  });
 });
