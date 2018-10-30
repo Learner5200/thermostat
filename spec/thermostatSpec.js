@@ -26,9 +26,9 @@ describe("Thermostat", function() {
       expect(thermostat.temp).toEqual(19);
     });
 
-    it("does not decrease temperature below 10", function() {
-      thermostat.temp = 10;
-      expect(function(){ thermostat.down(); }).toThrow("Minimum temperature is 10 degrees");
+    it("does not decrease temperature below minimum", function() {
+      thermostat.temp = thermostat.minimum;
+      expect(function(){ thermostat.down(); }).toThrow("Minimum temperature reached");
     });
   });
 });
