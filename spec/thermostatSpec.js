@@ -47,4 +47,12 @@ describe("Thermostat", function() {
       expect(thermostat.maximum).toEqual(32);
     });
   });
+
+  describe(".reset", function() {
+    it("sets temperature back to default", function() {
+      thermostat.up();
+      thermostat.reset();
+      expect(thermostat.temp).toEqual(thermostat.default);
+    })
+  })
 });
