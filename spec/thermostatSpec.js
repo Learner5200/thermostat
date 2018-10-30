@@ -55,4 +55,24 @@ describe("Thermostat", function() {
       expect(thermostat.temp).toEqual(thermostat.default);
     })
   })
+
+  describe(".usage", function() {
+    it("returns 'low' when temp < 18", function() {
+      for (i = 0; i < 3; i++) {
+        thermostat.down();
+      };
+      expect(thermostat.usage()).toEqual('low');
+    })
+
+    it("returns 'medium' when temp < 25", function() {
+      expect(thermostat.usage()).toEqual('medium');
+    })
+
+    it("returns 'high' when temp >= 25", function() {
+      for (i = 0; i < 5; i++) {
+        thermostat.up();
+      };
+      expect(thermostat.usage()).toEqual('high');
+    })
+  })
 });
