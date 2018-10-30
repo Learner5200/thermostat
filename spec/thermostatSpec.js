@@ -10,18 +10,20 @@ describe("Thermostat", function() {
 
   describe(".temp", function() {
     it("starts at 20", function() {
-      expect(thermostat.temp).toEqual(20);
+      expect(thermostat.getCurrentTemp()).toEqual(20);
     });
   });
 
   describe(".up", function() {
     it("increases the temperature by 1", function() {
       thermostat.up();
-      expect(thermostat.temp).toEqual(21);
+      expect(thermostat.getCurrentTemp()).toEqual(21);
     });
 
     it("does not increase temperature above maximum", function() {
-      thermostat.temp = thermostat.maximum;
+      for (var i = 0; i < 5; i++) {
+        thermostat.up();
+      };
       expect(function(){ thermostat.up(); }).toThrow("Maximum temperature reached");
     });
   });
@@ -29,11 +31,13 @@ describe("Thermostat", function() {
   describe(".down", function() {
     it("decreases the temperature by 1", function() {
       thermostat.down();
-      expect(thermostat.temp).toEqual(19);
+      expect(thermostat.getCurrentTemp()).toEqual(19);
     });
 
     it("does not decrease temperature below minimum", function() {
-      thermostat.temp = thermostat.MINIMUM;
+      for (var i = 0; i < 10; i++) {
+        thermostat.down();
+      };
       expect(function(){ thermostat.down(); }).toThrow("Minimum temperature reached");
     });
   });
@@ -53,7 +57,7 @@ describe("Thermostat", function() {
     it("sets temperature back to default", function() {
       thermostat.up();
       thermostat.reset();
-      expect(thermostat.temp).toEqual(thermostat.default);
+      expect(thermostat.getCurrentTemp()).toEqual(thermostat.DEFAULT);
     })
   })
 
