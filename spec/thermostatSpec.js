@@ -36,4 +36,15 @@ describe("Thermostat", function() {
       expect(function(){ thermostat.down(); }).toThrow("Minimum temperature reached");
     });
   });
+
+  describe("maximum", function() {
+    it("is 25 when power saving mode is on", function() {
+      expect(thermostat.maximum).toEqual(25);
+    });
+
+    it("is 32 when power saving mode is off", function() {
+      thermostat.powerSavingOff()
+      expect(thermostat.maximum).toEqual(32);
+    });
+  });
 });
