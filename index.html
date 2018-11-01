@@ -2,15 +2,16 @@
 <html>
 
 <head>
-   <title>Thermostat</title>
-   <style>
+  <title>Thermostat</title>
+
+  <style>
 
       body {
-        max-width: 600px;
         margin: 0 auto;
-      };
+        background-color: Cornsilk;
+      }
 
-      .low-usage { color: yellow; }
+      .low-usage { color: green; }
       .medium-usage { color: black; }
       .high-usage { color: red; }
 
@@ -21,50 +22,40 @@
       .button-off {
       }
 
-      #city-input-div {
-        display: inline-block;
-        vertical-align: top;
-        width: 40%;
-        height: 100px;
-        background-color: yellow;
-        margin: 1em;
+      .navbar {
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        height: 50px;
+        background-color: Sienna;
       }
 
-      #weather-display-div {
+      .container {
         display: inline-block;
         vertical-align: top;
         text-align: center;
-        width: 40%;
+        background-color: white;
+        padding: 10px;
         height: 100px;
-        background-color: yellow;
-        margin: 1em;
+        margin: 10px;
+        width: 40%;
       }
 
-      #temperature-display-div {
-        display: inline-block;
-        vertical-align: top;
-        text-align: center;
-        width: 40%;
-        height: 100px;
-        background-color: yellow;
-        margin: 1em;
+      .main {
+        margin-top: 30px;
+        padding: 20px;
       }
 
-      #button-container {
-        display: inline-block;
-        vertical-align: top;
-        text-align: center;
-        width: 40%;
-        height: 100px;
-        background-color: yellow;
-        margin: 1em;
-      }
    </style>
 </head>
 
 <body>
-  <section>
-    <div id='city-input-div'>
+  <nav class="navbar">
+    <h2>Thermostat</h2>
+  </nav>
+  <section class="main">
+    <div id='city-input-div' class="container">
       <h4>Please type in your city:</h1>
       <form id='city-input-form'>
         <input type="text" id="city-input" placeholder="city">
@@ -72,29 +63,29 @@
       </form>
     </div>
 
-    <div id='weather-display-div'>
+    <div id='weather-display-div' class="container">
       <h1 id='weather'></h1>
     </div>
   </section>
 
   <section>
-    <div id='temperature-display-div'>
-      <h1 id='temperature'>20</h1>
+    <div id='temperature-display-div' class="container">
+      <h1 id='temperature'>20 degrees</h1>
     </div>
-    <div id='button-container'>
+    <div id='button-container' class="container">
       <div>
         <button id='tempUp'>
-        Up
+        +
         </button>
         <button id='tempDown'>
-        Down
+        -
         </button>
         <button id='reset'>
         Reset
         </button>
       </div>
       <div>
-        <button id='switchPowerSavingOn'>
+        <button id='switchPowerSavingOn' class='button-on'>
         Power Saving On
         </button>
         <button id='switchPowerSavingOff'>
