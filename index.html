@@ -1,20 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Thermostat</title>
-  </head>
-  <body>
-    <section>
-      <h1 id="temperature" style="color: green">17˚C</h1>
-      <p>Power saving mode is <span id="power-saving-status">on</span></p>
-      <p>
-        <button id="temperature-up">+</button>
-        <button id="temperature-down">-</button>
-        <button id="temperature-reset">Reset</button>
-        <button id="power-saving-on">PSM on</button>
-        <button id="power-saving-off">PSM off</button>
-      </p>
-    </section>
-    <script src="lib/thermostat.js"></script>
-  </body>
+
+<head>
+   <title>Thermostat</title>
+   <style>
+
+      body {
+        max-width: 600px;
+        margin: 0 auto;
+      };
+
+      .low-usage { color: yellow; }
+      .medium-usage { color: black; }
+      .high-usage { color: red; }
+
+      .button-on {
+        background-color: gray;
+      }
+
+      .button-off {
+      }
+
+      #city-input-div {
+        display: inline-block;
+        vertical-align: top;
+        width: 40%;
+        height: 100px;
+        background-color: yellow;
+        margin: 1em;
+      }
+
+      #weather-display-div {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        width: 40%;
+        height: 100px;
+        background-color: yellow;
+        margin: 1em;
+      }
+
+      #temperature-display-div {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        width: 40%;
+        height: 100px;
+        background-color: yellow;
+        margin: 1em;
+      }
+
+      #button-container {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        width: 40%;
+        height: 100px;
+        background-color: yellow;
+        margin: 1em;
+      }
+   </style>
+</head>
+
+<body>
+  <section>
+    <div id='city-input-div'>
+      <h4>Please type in your city:</h1>
+      <form id='city-input-form'>
+        <input type="text" id="city-input" placeholder="city">
+        <input type="submit" value="Get Weather">
+      </form>
+    </div>
+
+    <div id='weather-display-div'>
+      <h1 id='weather'></h1>
+    </div>
+  </section>
+
+  <section>
+    <div id='temperature-display-div'>
+      <h1 id='temperature'>20</h1>
+    </div>
+    <div id='button-container'>
+      <div>
+        <button id='tempUp'>
+        Up
+        </button>
+        <button id='tempDown'>
+        Down
+        </button>
+        <button id='reset'>
+        Reset
+        </button>
+      </div>
+      <div>
+        <button id='switchPowerSavingOn'>
+        Power Saving On
+        </button>
+        <button id='switchPowerSavingOff'>
+        Power Saving Off
+        </button>
+      </div>
+    </div>
+  </section>
+  <script src="lib/thermostat.js"></script>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="lib/thermostatJquery.js"></script>
+</body>
 </html>
